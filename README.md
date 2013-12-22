@@ -5,7 +5,7 @@ A sample project for Angular.js training.
 
 
   
-> Angular.js is awesome MVC framework from Google. The intension of this project is > to help others in understanding the various features of Angular.js
+> Angular.js is an awesome MVC framework from Google. The intention of this project is to help others in understanding the various concepts/features of Angular.js
 
 
 Contents
