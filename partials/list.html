@@ -1,0 +1,14 @@
+<section get-name ng-controller="ListController">
+
+	<div class="content-wrapper big-txt">
+    <div class="title">{{currentController}}</div>    
+      <div class="inner-wrapper">
+        <ol class="linenums ">
+          <li ng-repeat="item in menu">
+            <a class="yellow" ng-href="#!/{{item.link}}">{{item.name}}</a>
+          </li>
+        </ol>
+      </div>
+  </div>
+  
+</section>

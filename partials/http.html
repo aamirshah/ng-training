@@ -1,0 +1,22 @@
+<section ng-controller="APIController">
+
+	<div class="content-wrapper big-txt">
+    <div class="title">Languages from Feedzilla.com</div>
+
+    <div class="inner-wrapper">
+      <div class="links">
+        <a href="" class="sort-link" ng-click="param = 'display_culture_name'" ng-class="{active:param == 'display_culture_name'}">Name</a>
+        <a href="" class="sort-link" ng-click="param = 'language_code'" ng-class="{active:param == 'language_code'}">Code</a>
+
+        <a href="" class="sort-link" ng-click="param = '';" ng-class="{active:param == ''}">Hide</a>
+      </div>
+
+      <ol class="linenums  animate" ng-hide="param == ''">
+        <li ng-repeat="item in cultures | orderBy:param">
+          <span class="green">{{item.display_culture_name}}</span>
+          <span class="red">({{item.language_code}})</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<section ng-controller="TableController">
+
+
+
+  [ <a href="" ng-click="predicate=''">Reset the Table</a> ]
+
+
+  <table class="table">
+    <thead class="header">
+      <tr>
+        <th><a href="" ng-click="predicate = 'name';  reverse=!reverse">Name</a>
+        <th><a href="" ng-click="predicate = 'phone'; reverse=!reverse">Phone Number</a></th>
+        <th><a href="" ng-click="predicate = 'head';  reverse=!reverse">COE</a></th>
+      </tr>
+    </thead>
+    
+    <tbody class="body">
+      <tr ng-repeat="item in departments | orderBy:predicate:reverse">
+        <td>{{item.name}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.head}}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+
+</section>

@@ -1,0 +1,12 @@
+<section ng-controller="SearchController">
+	
+	<div class="search-wrapper">
+		<input class="text-input search" ng-model="search" placeholder="Search...">
+		
+		<ul class="search-list">
+			<li class="slide" ng-repeat="item in projectList | filter:search">{{item}}</li>
+		</ul>
+		
+	</div>
+
+</section>
