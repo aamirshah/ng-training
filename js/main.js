@@ -35,6 +35,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   .when("/example/communication", {
     templateUrl:"partials/communication.html"
   })
+  .when("/login", {
+    templateUrl:"partials/login.html"
+  })
   .otherwise({
     redirectTo:'/home'
   });
@@ -45,6 +48,17 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 app.run(['$rootScope', '$route','$location', function($rootScope, $route, $location){
 
 	console.log("RUN...");
+   /**
+   * [This object contains various RegEx which are used to validate the input fields using ng-pattern]
+   * @type {Object}
+   */
+  $rootScope.validator ={
+    'email'      : /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/,
+    'password'   : /^.{8,}$/,
+    'name'       : /^[a-zA-Z ]+$/,
+    'nameNnumber': /^[a-zA-Z 0-9]+$/,
+    'decimalValue'  : /^([0-9]+(\.)?[0-9]*$)+/
+  };
 
 }]);
 
@@ -104,7 +118,8 @@ app.controller('ListController', ['$scope', '$rootScope', function($scope, $root
     { name: 'Filters', link: 'example/filters' },
     { name: 'HTTP', link: 'example/http' },
     { name: 'Directives', link: 'example/directives' },
-    { name: 'Communication between Controllers', link: 'example/communication' }
+    { name: 'Communication between Controllers', link: 'example/communication' },
+    { name: 'Login', link: 'login' }
 	];
 }])
 

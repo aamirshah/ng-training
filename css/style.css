@@ -411,6 +411,181 @@ ol.linenums a {
 }
 
 
+.authentication h2,
+.authentication h3,
+.authentication h4 {
+  text-align: center;
+}
+.authentication h2.login-header {
+  margin-top: 90px;
+}
+.authentication h3 {
+  font-size: 1.3em;
+}
+.authentication .shadowed {
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.authentication .login-additional-options,
+.authentication .login-wrap {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  margin: 5px auto 0 auto;
+  width: 350px;
+  padding: 15px 30px;
+}
+.authentication .login-wrap {
+  margin-top: 20px;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 #d8d8d8;
+  border: solid thin #d8d8d8;
+}
+.authentication .login-wrap h2 {
+  font-weight: 200;
+  font-size: 2em;
+  margin-top: 10px;
+  color: #34495e;
+}
+.authentication .login-wrap .form {
+  padding-top: 20px;
+}
+.authentication .login-wrap .form input[type="text"],
+.authentication .login-wrap .form input[type="password"],
+.authentication .login-wrap .form input[type="email"],
+.authentication .login-wrap .form button {
+  width: 100%;
+  margin-bottom: 15px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+}
+.authentication .login-wrap .form input[type="text"],
+.authentication .login-wrap .form input[type="password"],
+.authentication .login-wrap .form input[type="email"] {
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.authentication .login-wrap .form input[type="text"]:focus,
+.authentication .login-wrap .form input[type="password"]:focus,
+.authentication .login-wrap .form input[type="email"]:focus {
+  border: 1px solid #3498db;
+}
+.authentication .login-wrap .form a {
+  text-align: center;
+  font-size: 10px;
+  color: #3498db;
+  cursor: pointer;
+}
+.authentication .login-wrap .form a p {
+  padding-bottom: 10px;
+}
+.authentication .login-wrap .form .spinner-wrapper {
+  width: 100%;
+}
+.authentication .login-wrap .form .spinner-wrapper button {
+  margin-bottom: 0;
+}
+.authentication .login-additional-options {
+  padding-bottom: 50px;
+}
+.authentication .login-additional-options label {
+  margin-right: 20px;
+}
+.authentication .login-additional-options label input[type="checkbox"] {
+  margin-top: -2px;
+}
 
 
 
+.relative {
+  position: relative;
+}
+form {
+  /* Show blue border when stuff has been typed in, and its valid */
+  /* Show red border when stuff has been typed in, but its invalid */
+  /* Always hide the input help when it's pristine */
+  /* Hide the invalid box while the input has focus */
+  /* Help should show and be red when invalid */
+  /* Show the help box once it has focus */
+  /* Immediate help should be red when pristine */
+  /* Help hould be green when input is valid */
+}
+form .ng-dirty.ng-valid {
+  border-color: #3498db !important;
+}
+form .ng-dirty.ng-invalid {
+  border-color: #ec3f41 !important;
+  color: #b94a48 !important;
+}
+form input.ng-pristine + .input-help {
+  display: none;
+}
+form .ng-invalid:focus + .input-help {
+  display: none;
+}
+form .ng-invalid + .input-help {
+  display: block;
+  border-color: #ec3f41;
+}
+form .ng-valid + .input-help {
+  border-color: #3a7d34;
+}
+form .ng-valid + .input-help::before {
+  color: #3a7d34;
+}
+form .ng-invalid + .input-help::before {
+  color: #ec3f41;
+}
+
+.input-help {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 0px;
+  left: 304px;
+  width: 200px;
+  padding: 10px;
+  background: #fefefe;
+  font-size: .875em;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #aaa;
+  border: 1px solid #ddd;
+  opacity: 0.9;
+  /* Style input help requirement bullets */
+}
+.input-help h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 1.1em;
+}
+.input-help:before {
+  content: "\25C0";
+  position: absolute;
+  top: 10px;
+  left: -12px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #ddd;
+  text-shadow: none;
+}
+.input-help ul {
+  list-style: none;
+  margin: 10px 0 0 0;
+  /* Default each bullet to be invalid with a red cross and text */
+  /* Set to green check and text when valid */
+}
+.input-help ul li {
+  padding-left: 22px;
+  line-height: 24px;
+  color: #ec3f41;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA1CAYAAABIkmvkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAJwAAACcBKgmRTwAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOS8xMlhq+BkAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAEA0lEQVRIie2WW2jbVRzHv//zT5rkn0ub61zaNdEiPqTC9EFRhtgJk63qg3Wr0806pswNiYgDUXxwyryCEB8UBevtaSCCDHQoboKyoVvVzfRmL2napU0mrdbl8s//dy4+dM1M28n64FsPnIdz+XzO75zfOXA0pRRWU7o/uS9FxOc+3/vlIQBgq4F3fHxvKuIPJ9cFwi9uTXU8BwDa1Uaw/aN7UusCkWRbPI5yxcTI2Bgy49kXrkrwwIedqYg/nGyLXwsJiYHBYWTGs7Cq5Kpt4cA3PXft+2rX40vhrt7OVLgplIzHYuBKoH9gCKMjGVE1LdfJl86YDAAOfN2ziZP4NODyv9/z2fanFuH7P9iWCjcFk/FYK4QSGLgEk0WeUy/3mQCgPXFs9xbBRW883NrssDvQN3hWcOLPEPGWiD94MBaPQymBoaERjI9mBSfu+fHwL+biItpjR3e6JFfloDeAaGQ9SpUycvlp6ExHJBKGYsDvgyMYH81KTsL90yuX4VoWdh3pMqSQpWBjAC3RZkgpYEkCFDA8NIqJ0UlFxI3Tr/5aB9elsau305BcloKBAFpjLeBSYGRwDBNjk4oTN06/dnYZXCcAgK1vbzYkl6VwOATihOzYlOLEjTOvn1sRXiYAgDsP32YIKUuWaXFOwtP3xrnqleAVBQBwy/M3GZy4+PnN3/4TvqJgNWVVj2lNsCZYE6wJ1gRrgv9dYAMAHHw2Bl2fUEpBVavtLPVW/78nVR/Zk4CupzVHA6zChSOK0yHv0S8GFyK4BMPhAJxOgLE03/9kYhE2dz+agKaldY8bDaEQ7D5ft7Roy+UIlCooy5LQdaZ5vVBEgGmmrT172yVxaIylmdcDm9cHc2oK1Zm8kETvLAo0pRRk8mmnEqKouVw68zVCzP8F/uccFHHoXi/sjT6Y53Mw83mhOHn8J7416wQAwPftd0ouiswwdJu/CRASkBKQAmYuBzNfWIC/O173W6llwfbeu6Yi8tDsrAQJYGICyGQAIWDO5KUkaxlcJwAASdSmaWAQHCACOAc4h6YzJi1qWymNNUHlwYcT0JDWXQbACYhGgeh6gHM4Ghuh2/R0YePNiaUCTSmFcvdDCY1paZvhht3nQ2VmGmahICSR5vQHmDt6DcozeZSnp2FdLLZHhwdq94SVd+xMaJqWtrkM2L1uVHILpy0t8igidymXExfHMzBCQbhCIdga7Onz8etqkdgkUYTZbYCSqORmULlQEIq4J3jyexMA8jdu9BRzuaKyLN3udkNjDEqICID+2hbm797Wwez24/T3vJTE3aFTP9Sd9vT1NziVEMUGr1c35+Y2b5jKnqgNKqWglMLspjs6/rj1dudie2mdao07J5s3dCzt/werJTyI1yYqpQAAAABJRU5ErkJggg==) no-repeat 2px -34px;
+}
+.input-help ul li.valid {
+  color: #3a7d34;
+  background-position: 2px 6px;
+}

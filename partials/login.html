@@ -1,0 +1,19 @@
+<section class="authentication">
+
+	<h2 class="login-header">NG-Training</h2>
+	
+	<div class="login-wrap">
+
+	  <form class="form" name="loginForm">
+	  	<div class="relative">
+	    	<input type="email" ng-model="email" required ng-pattern="validator.email" placeholder="Email Id"  />		    			    
+	    	<div class="input-help">
+	      		<h4>Invalid Email</h4>
+	    	</div>
+	    </div>
+	    <input type="password" ng-model="pass" required placeholder="Password." />
+	    <button type="submit" class="btn btn-primary" ng-click="">Sign In</button>
+	  </form>
+
+	</div>
+</section>
