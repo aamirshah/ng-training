@@ -1,0 +1,12 @@
+<section class="controller parent" ng-controller="ParentController">
+	<h2>Parent Controller</h2>
+	<input placeholder="Enter your message for child" type="text" ng-model="parent_msg">
+	<button ng-click="callChild(parent_msg)">Call child !</button>
+
+	<div class="controller child" ng-controller="ChildController">
+		<h2>Child Controller</h2>
+		<input placeholder="Enter your message for parent" type="text" ng-model="child_msg">
+		<button ng-click="callParent(child_msg)">Call Parent !</button>
+	</div>
+
+</section>

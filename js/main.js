@@ -32,6 +32,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   .when("/example/directives", {
     templateUrl:"partials/directives.html"
   })
+  .when("/example/communication", {
+    templateUrl:"partials/communication.html"
+  })
   .otherwise({
     redirectTo:'/home'
   });
@@ -100,7 +103,8 @@ app.controller('ListController', ['$scope', '$rootScope', function($scope, $root
     { name: 'List', link: 'example/list' },
     { name: 'Filters', link: 'example/filters' },
     { name: 'HTTP', link: 'example/http' },
-    { name: 'Directives', link: 'example/directives' }
+    { name: 'Directives', link: 'example/directives' },
+    { name: 'Communication between Controllers', link: 'example/communication' }
 	];
 }])
 
@@ -140,10 +144,10 @@ app.controller('GravatarController', ['$scope', '$rootScope', function($scope, $
 
   $scope.getGravatar = function(email) {
     console.log('EMAIL === ', email);
-    $scope.fromURL = email;
+    $scope.fromEmail = email;
   };
 
-  $scope.fromURL = "asavu@apache.org";
+  $scope.fromEmail = "asavu@apache.org";
 }]);
 
 app.directive('gravatarImage', ['gravatarImageService', function (gravatarImageService) {
@@ -188,4 +192,27 @@ app.factory('gravatarImageService', function (md5) {
         }
     };
 });
+
+app.controller('ParentController', ['$scope', '$rootScope', function($scope, $rootScope) {
+
+  $scope.callChild = function(msg) {
+    $scope.$broadcast('hey::child', msg || 'Default - Hi Buddy');
+  };
+
+  $scope.$on('hey::dad', function(){
+    console.log("from child ::: ", arguments);
+  });
+}]);
+
+
+app.controller('ChildController', ['$scope', '$rootScope', function($scope, $rootScope) {
+  
+  $scope.$on('hey::child', function() {
+    console.log("from parent ::: ", arguments);
+  });
+
+  $scope.callParent = function(msg) {
+    $scope.$emit('hey::dad', msg || 'Default - Hey dad !');
+  };
+}]);
 

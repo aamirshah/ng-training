@@ -380,3 +380,37 @@ ol.linenums a {
 .animate.ng-hide {
   opacity:0;
 }
+
+
+
+
+.controller {
+    margin: 150px auto;
+    border: 2px solid red;
+    text-align: center;
+}
+
+.controller.parent {
+    width: 500px;
+    height: 450px;
+}
+
+.controller.child {
+    width: 480px;
+    height: 150px;
+    border-color: blue;
+    background: #f3f3f3;
+}
+
+.controller input {
+    width: 300px;
+    height: 50px;
+    margin: 20px;
+    padding-left: 10px;
+    font-size: 22px;
+}
+
+
+
+
+
