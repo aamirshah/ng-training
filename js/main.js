@@ -35,6 +35,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   .when("/example/communication", {
     templateUrl:"partials/communication.html"
   })
+  .when("/example/scopes", {
+    templateUrl:"partials/scopes.html"
+  })
   .when("/login", {
     templateUrl:"partials/login.html"
   })
@@ -119,7 +122,8 @@ app.controller('ListController', ['$scope', '$rootScope', function($scope, $root
     { name: 'HTTP', link: 'example/http' },
     { name: 'Directives', link: 'example/directives' },
     { name: 'Communication between Controllers', link: 'example/communication' },
-    { name: 'Login', link: 'login' }
+    { name: 'Login', link: 'login' },
+    { name: 'Scopes', link: 'example/scopes' }
 	];
 }])
 
@@ -231,3 +235,112 @@ app.controller('ChildController', ['$scope', '$rootScope', function($scope, $roo
   };
 }]);
 
+app.controller('sampleController', ['$scope', function($scope) {
+
+  $scope.something = "mango";
+
+  $scope.logger = function(item) {
+    console.log('item passed is ', item);
+  };
+
+}]);
+
+
+app.directive('sample', ['$rootScope', function($rootScope) {
+
+  return {
+    restrict: 'E',
+    
+    scope: {
+      done: '&' // expression
+    },
+    template: '<input type="text" ng-model="abc">{{abc}}<button ng-click="done({abc:abc})">Log</button>',
+    link: function(scope, element, attrs) {
+
+    }
+  };
+}]);
+
+// app.directive('drink', ['$rootScope', function($rootScope) {
+
+//   return {
+//     restrict: 'A',
+    
+//     template: '<div style="width: 50px; height:20px; background: orange;">{{flavor}}</div>',
+//     link: function(scope, element, attrs) {
+//       scope.flavor = attrs.flavor;
+//       console.log(' scope.flavor = ',scope.flavor);
+//     }
+//   };
+// }]);
+
+
+// app.directive('drink', ['$rootScope', function($rootScope) {
+
+//   return {
+//     restrict: 'A',
+//     scope: {
+//       flavor: "@" // take as string
+//     },
+//     template: '<div style="width: 50px; height:20px; background: orange;">{{flavor}}</div>',
+//   };
+// }]);
+
+
+app.directive('drink', ['$rootScope', function($rootScope) {
+
+  return {
+    restrict: 'A',
+    scope: {
+      flavor: "=" // 2 way, this is set to that
+    },
+    template: '<div style="width: 50px; height:20px; background: orange;">{{flavor}}</div><input type="text" ng-model="flavor">',
+  };
+}]);
+
+
+app.directive('panel', ['$rootScope', function($rootScope) {
+
+  return {
+    restrict: 'E',
+    transclude: true,
+    template: '<div ng-transclude>Hi there</div>',
+  };
+}]);
+
+app.controller('PhoneController', ['$scope', function($scope) {
+
+  console.log('PhoneController');
+
+
+  $scope.leaveVoicemail = function(number, message) {
+    console.log('Number = ', number);
+    console.log('Message = ', message);
+  };
+}]);
+
+
+app.directive('phone', ['$rootScope', function($rootScope) {
+
+  return {
+    restrict: 'E',
+    scope: {
+      number: '@',
+      network: '=',
+      makeCall: '&'
+    },
+    templateUrl: 'partials/phone.html',
+    link: function(scope, element, attrs) {
+
+      scope.networks = ['airtel', 'vodafone', 'aircel'];
+      scope.network = scope.networks[0];
+    }
+  };
+}]);
+
+app.controller('PhoneController', function($scope){
+  $scope.leaveVoicemail = function(number, message){
+    console.log('Number: ' + number + ' said: ' + message);
+  };
+});
+ 
